@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OKo-wK-LmN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="pdfViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqw-G6-wcf">
+                                <rect key="frame" x="189" y="168" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PDF1"/>
+                                <connections>
+                                    <action selector="actionPDF1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q9G-hz-l7r"/>
+                                    <segue destination="fTq-As-LhZ" kind="show" identifier="toPDFViewController" id="ero-HZ-L5K"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhY-hj-OTS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PDFファイルのURLを指定してください" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eEJ-kH-eFW">
+                                        <rect key="frame" x="5" y="8" width="350" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="GJ1-Tb-Bks"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1u-NS-5Fp">
+                                        <rect key="frame" x="359" y="10" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="j1V-by-BHg"/>
+                                        </constraints>
+                                        <state key="normal" title="表示"/>
+                                        <connections>
+                                            <action selector="actionPDFView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d6f-4C-nIp"/>
+                                            <segue destination="fTq-As-LhZ" kind="show" identifier="toPDFViewController" id="5y3-XU-hRX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="eEJ-kH-eFW" firstAttribute="leading" secondItem="dhY-hj-OTS" secondAttribute="leading" constant="5" id="Ff9-Zm-6tg"/>
+                                    <constraint firstItem="T1u-NS-5Fp" firstAttribute="centerY" secondItem="dhY-hj-OTS" secondAttribute="centerY" id="bL8-XJ-hok"/>
+                                    <constraint firstAttribute="trailing" secondItem="T1u-NS-5Fp" secondAttribute="trailing" constant="5" id="ek1-bk-X0r"/>
+                                    <constraint firstAttribute="height" constant="50" id="uK4-KH-oNA"/>
+                                    <constraint firstItem="eEJ-kH-eFW" firstAttribute="centerY" secondItem="dhY-hj-OTS" secondAttribute="centerY" id="ygP-Pv-B37"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dhY-hj-OTS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DRB-6t-4zA"/>
+                            <constraint firstItem="dhY-hj-OTS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cEi-hp-1jo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dhY-hj-OTS" secondAttribute="trailing" id="enf-C8-5J3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yuN-sW-pYD"/>
+                    <connections>
+                        <outlet property="urlTextField" destination="eEJ-kH-eFW" id="lei-f3-mg3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </scene>
+        <!--PDFView Controller-->
+        <scene sceneID="WwU-RM-tCc">
+            <objects>
+                <viewController title="PDFView" modalPresentationStyle="fullScreen" id="fTq-As-LhZ" userLabel="PDFView Controller" customClass="PDFViewController" customModule="pdfViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gcx-lJ-VFo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yti-Tj-MwD" userLabel="PDFView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UJ-NG-Iym" userLabel="SearchView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBM-dm-oHp" userLabel="BackwordButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2mT-K9-ViF"/>
+                                            <constraint firstAttribute="width" constant="44" id="JH2-HB-Bki"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow.left" catalog="system"/>
+                                        <connections>
+                                            <action selector="backwordAction:" destination="fTq-As-LhZ" eventType="touchUpInside" id="LgN-K7-BJ7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZA-jq-u5x" userLabel="ForwardButton">
+                                        <rect key="frame" x="44" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="LNh-cO-aBp"/>
+                                            <constraint firstAttribute="width" constant="44" id="Xh5-E3-k3M"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow.right" catalog="system"/>
+                                        <connections>
+                                            <action selector="forwardAction:" destination="fTq-As-LhZ" eventType="touchUpInside" id="XiL-Kf-lGH"/>
+                                        </connections>
+                                    </button>
+                                    <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="検索文字を入れてください" translatesAutoresizingMaskIntoConstraints="NO" id="dq7-U8-uPm">
+                                        <rect key="frame" x="88" y="0.0" width="326" height="44"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dq7-U8-uPm" secondAttribute="bottom" id="75K-r4-zgA"/>
+                                    <constraint firstItem="aZA-jq-u5x" firstAttribute="centerY" secondItem="3UJ-NG-Iym" secondAttribute="centerY" id="7yz-gx-G3r"/>
+                                    <constraint firstAttribute="height" constant="44" id="DDQ-zR-F9W"/>
+                                    <constraint firstItem="pBM-dm-oHp" firstAttribute="leading" secondItem="3UJ-NG-Iym" secondAttribute="leading" id="NaN-Om-CYM"/>
+                                    <constraint firstItem="pBM-dm-oHp" firstAttribute="centerY" secondItem="3UJ-NG-Iym" secondAttribute="centerY" id="QHZ-lY-1LQ"/>
+                                    <constraint firstItem="aZA-jq-u5x" firstAttribute="leading" secondItem="pBM-dm-oHp" secondAttribute="trailing" id="Ywd-A4-uUv"/>
+                                    <constraint firstItem="dq7-U8-uPm" firstAttribute="top" secondItem="3UJ-NG-Iym" secondAttribute="top" id="iyo-Ii-bMd"/>
+                                    <constraint firstAttribute="trailing" secondItem="dq7-U8-uPm" secondAttribute="trailing" id="tfE-pw-sWA"/>
+                                    <constraint firstItem="dq7-U8-uPm" firstAttribute="leading" secondItem="aZA-jq-u5x" secondAttribute="trailing" id="xbj-mO-FML"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yti-Tj-MwD" firstAttribute="leading" secondItem="r5V-pL-3Qb" secondAttribute="leading" id="1DF-OH-iWP"/>
+                            <constraint firstItem="3UJ-NG-Iym" firstAttribute="leading" secondItem="r5V-pL-3Qb" secondAttribute="leading" id="279-Ea-28f"/>
+                            <constraint firstItem="r5V-pL-3Qb" firstAttribute="bottom" secondItem="yti-Tj-MwD" secondAttribute="bottom" id="7m2-eK-ziZ"/>
+                            <constraint firstItem="r5V-pL-3Qb" firstAttribute="trailing" secondItem="yti-Tj-MwD" secondAttribute="trailing" id="Lxt-Nh-7zx"/>
+                            <constraint firstItem="yti-Tj-MwD" firstAttribute="top" secondItem="r5V-pL-3Qb" secondAttribute="top" id="Td5-Ag-tPG"/>
+                            <constraint firstItem="3UJ-NG-Iym" firstAttribute="top" secondItem="r5V-pL-3Qb" secondAttribute="top" id="ZWy-OZ-ixd"/>
+                            <constraint firstItem="3UJ-NG-Iym" firstAttribute="trailing" secondItem="r5V-pL-3Qb" secondAttribute="trailing" id="q3V-MT-MfL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="r5V-pL-3Qb"/>
+                    </view>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="Fe6-B4-b7u">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Aeq-VB-eZi">
+                            <connections>
+                                <action selector="searchAction:" destination="fTq-As-LhZ" id="vZj-cg-EUc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pdfViewArea" destination="yti-Tj-MwD" id="bsP-75-GO5"/>
+                        <outlet property="searchBar" destination="dq7-U8-uPm" id="hUU-pX-ZX9"/>
+                        <outlet property="searchView" destination="3UJ-NG-Iym" id="MZu-hP-PPS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zPU-E0-oSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093" y="127"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pCM-ov-hgf">
+            <objects>
+                <navigationController id="OKo-wK-LmN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EyC-5X-cWK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Hb3-aK-lEy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vCD-9f-Nen" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="-596"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
+        <image name="arrow.right" catalog="system" width="64" height="48"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5y3-XU-hRX"/>
+    </inferredMetricsTieBreakers>
+</document>
