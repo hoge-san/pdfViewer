@@ -47,6 +47,14 @@ class PDFViewController: UIViewController, UISearchBarDelegate  {
         NotificationCenter.default.removeObserver(self, name: Notification.Name.PDFViewPageChanged, object: nil)
     }
 
+    // 回転時にpdfviewのサイズを画面に合わせる
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if self.pdfView != nil  && self.pdfViewArea != nil {
+            self.pdfView.frame = self.pdfViewArea.frame
+        }
+    }
+
     // MARK: - Actions
     @IBAction func searchAction(_ sender: Any) {
         if self.searchView.isHidden {
@@ -173,11 +181,16 @@ class PDFViewController: UIViewController, UISearchBarDelegate  {
         self.pdfView.displayMode = .singlePageContinuous
         self.pdfView.displayDirection = .horizontal
         self.pdfView.displaysPageBreaks = true
+        print ("scaleFactorForSizeToFit: ")
+        debugPrint(self.pdfView.scaleFactorForSizeToFit)
+        debugPrint(self.pdfView.scaleFactor)
+        debugPrint(self.pdfView.maxScaleFactor)
+        debugPrint(self.pdfView.minScaleFactor)
+
 
         let document = PDFDocument(url: url)
         self.pdfView.document = document
         self.pdfDocument  = document
-        self.pdfView.autoScales = true
 
         self.totalPage = document?.pageCount ?? 0
 
